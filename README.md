@@ -2,7 +2,7 @@
 
 Name :	RITHIGA SRI.B  
 Roll no: 212221230083  
-Date of experiment : 04.11.2022
+Date of experiment : 
   
   
 ## AIM:
@@ -179,32 +179,7 @@ ADxDRy. E.g. AD0DR1 contains ADC result of channel 1 of ADC0.
 Figure -08 Circuit diagram of interfacing an POT with ADC input pin 
 
 ## KIEL PROGRAM:
-```
-#include <lpc214x.h>            //Header file for LPC214x Series microcontrollers
-void delay(int );              //Function declaration for delay
-int i;                         //Variable declared as integer
-unsigned int a[]={0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90}; //integer array with numbers for display
-int main()
-{ 
-    IO0DIR=0xffffffff;              //Sets direction as output for PORT 0 pins
-    while(1)
-    {
-        for(i=0;i<=9;i++)
-        {
-            IO0SET=a[i];           //sets corresponding pins HIGH
-            delay(9000);                  //Calls delay function
-            IO0CLR=a[i];           //Sets corresponding pins LOW
-        }
-    }
-    return 0;
-}
-void delay(int k)              //Function for making delay
-{
-    int i,j;
-    for(i=0;i<k;i++)
-    for(j=0;j<=1000;j++);
-}
-```
+
  
 ## TABULATIONS AND GRAPH:	
  ![image](https://user-images.githubusercontent.com/36288975/198947184-dbccf4b1-10a1-4090-a670-93526ed6e597.png)
@@ -212,8 +187,7 @@ void delay(int k)              //Function for making delay
 Figure -09 graph between % of pot(1Kohm) values and ADC 
 
 ## OUTPUT:
-![OUTPUT](./pic1.png)
-![OUTPUT](./pic2.png)
+
 ## RESULT :
 The ADC was configured and the input values were displayed successfully on LCD screen.
 
