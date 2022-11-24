@@ -2,7 +2,7 @@
 
 Name :	RITHIGA SRI.B  
 Roll no: 212221230083  
-Date of experiment : 
+Date of Experiment : 24.11.2022
   
   
 ## AIM:
@@ -179,14 +179,40 @@ ADxDRy. E.g. AD0DR1 contains ADC result of channel 1 of ADC0.
 Figure -08 Circuit diagram of interfacing an POT with ADC input pin 
 
 ## KIEL PROGRAM:
+```
+#include <lpc214x.h>
+#include "LCD.h"
+#include "ADC.h"
 
+unsigned int val;
+int main()
+{
+	IO1DIR = 0xffffffff;
+	IO0DIR = 0x00000000;
+	PINSEL0 = 0x300;
+	VPBDIV = 0x02;
+	lcd_init();
+	show(" ADC Value: ");
+	while(1)
+	{
+		cmd(0x8b);
+		val = adc(0,6);
+		dat((val/1000)+48);
+		dat(((val/100)%10)+48);
+		dat(((val/10)%10)+48);
+		dat((val%10)+48);
+	}
+}
+```
  
-## TABULATIONS AND GRAPH:	
- ![image](https://user-images.githubusercontent.com/36288975/198947184-dbccf4b1-10a1-4090-a670-93526ed6e597.png)
-
-Figure -09 graph between % of pot(1Kohm) values and ADC 
+## TABULATION:
+![output](./tab.png)
+## GRAPH:	
+![output](./graph.png)
 
 ## OUTPUT:
+![output](./pic1.png)
+![output](./pic2.png)
 
 ## RESULT :
 The ADC was configured and the input values were displayed successfully on LCD screen.
